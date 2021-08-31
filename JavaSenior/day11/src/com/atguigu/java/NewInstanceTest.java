@@ -1,5 +1,7 @@
 package com.atguigu.java;
 
+
+
 import org.junit.Test;
 
 import java.util.Random;
@@ -15,6 +17,7 @@ public class NewInstanceTest {
     @Test
     public void test1() throws IllegalAccessException, InstantiationException {
 
+//        Class clazz = Person.class;
         Class<Person> clazz = Person.class;
         /*
         newInstance():调用此方法，创建对应的运行时类的对象。内部调用了运行时类的空参的构造器。

@@ -75,7 +75,7 @@ enum Season1 implements Info{
         }
     };
 
-    //2.声明Season对象的属性:private final修饰
+    //2.声明ssendff对象的属性:private final修饰
     private final String seasonName;
     private final String seasonDesc;
 

@@ -145,6 +145,8 @@ public class ReflectionTest {
         Class c3 = String[].class;
         Class c4 = int[][].class;
         Class c5 = ElementType.class;
+
+//        注解
         Class c6 = Override.class;
         Class c7 = int.class;
         Class c8 = void.class;

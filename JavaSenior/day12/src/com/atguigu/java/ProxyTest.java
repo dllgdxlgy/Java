@@ -57,7 +57,7 @@ class HumanUtil{
 
 class ProxyFactory{
     //调用此方法，返回一个代理类的对象。解决问题一
-    public static Object getProxyInstance(Object obj){//obj:被代理类的对象
+    public static Object getProxyInstance(Object obj){//obj:被代理类的对象,也就是传入一个代理对象
         MyInvocationHandler handler = new MyInvocationHandler();
 
         handler.bind(obj);
@@ -98,9 +98,13 @@ class MyInvocationHandler implements InvocationHandler{
 public class ProxyTest {
 
     public static void main(String[] args) {
+
+        //被代理对象的创建
         SuperMan superMan = new SuperMan();
+
         //proxyInstance:代理类的对象
         Human proxyInstance = (Human) ProxyFactory.getProxyInstance(superMan);
+
         //当通过代理类对象调用方法时，会自动的调用被代理类中同名的方法
         String belief = proxyInstance.getBelief();
         System.out.println(belief);

@@ -73,6 +73,7 @@ public class IteratorTest {
             System.out.println(coll.iterator().next());
         }
 
+      
 
     }
 

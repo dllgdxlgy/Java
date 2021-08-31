@@ -65,7 +65,7 @@ public class OtherTest {
     获取运行时类的带泛型的父类的泛型
 
 
-    代码：逻辑性代码  vs 功能性代码
+    代码：逻辑性代码  vs  功能性代码
      */
     @Test
     public void test4(){
@@ -92,7 +92,7 @@ public class OtherTest {
         }
 
         System.out.println();
-        //获取运行时类的父类实现的接口
+        //获取运行时类的 父类实现的接口
         Class[] interfaces1 = clazz.getSuperclass().getInterfaces();
         for(Class c : interfaces1){
             System.out.println(c);

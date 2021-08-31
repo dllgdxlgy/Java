@@ -8,7 +8,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
 /**
- * 调用运行时类中指定的结构：属性、方法、构造器
+ * 调用运行时类中指定的结构：属性、方法、构造器（这些是重中之重）
  *
  * @author shkstart
  * @create 2019 下午 4:46
@@ -27,7 +27,7 @@ public class ReflectionTest {
         Person p = (Person) clazz.newInstance();
 
 
-        //获取指定的属性：要求运行时类中属性声明为public
+        //获取指定的属性：要求运行时类中属性声明为public，不是public的没办法获取
         //通常不采用此方法
         Field id = clazz.getField("id");
 
@@ -61,7 +61,7 @@ public class ReflectionTest {
         //1. getDeclaredField(String fieldName):获取运行时类中指定变量名的属性
         Field name = clazz.getDeclaredField("name");
 
-        //2.保证当前属性是可访问的
+        //2.保证当前属性是可访问的，如果不设置就报错误，如果要访问的是公共的，使用也没错。
         name.setAccessible(true);
         //3.获取、设置指定对象的此属性值
         name.set(p,"Tom");
@@ -85,6 +85,8 @@ public class ReflectionTest {
         getDeclaredMethod():参数1 ：指明获取的方法的名称  参数2：指明获取的方法的形参列表
          */
         Method show = clazz.getDeclaredMethod("show", String.class);
+
+
         //2.保证当前方法是可访问的
         show.setAccessible(true);
 

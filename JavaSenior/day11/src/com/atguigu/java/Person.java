@@ -6,7 +6,9 @@ package com.atguigu.java;
  */
 public class Person {
 
+
     private String name;
+
     public int age;
 
     @Override
