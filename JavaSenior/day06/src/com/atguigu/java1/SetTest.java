@@ -15,10 +15,11 @@ import java.util.Set;
  *              |----HashSet：作为Set接口的主要实现类；线程不安全的；可以存储null值
  *                  |----LinkedHashSet：作为HashSet的子类；遍历其内部数据时，可以按照添加的顺序遍历
  *                                      对于频繁的遍历操作，LinkedHashSet效率高于HashSet.
- *              |----TreeSet：可以按照添加对象的指定属性，进行排序。
+ *              |----TreeSet：可以按照添加对象的指定属性，进行排序。这里treeSet比较的必须是同一个类的对象。
  *
  *
- *  1. Set接口中没有额外定义新的方法，使用的都是Collection中声明过的方法。
+ *  1. Set作为子接口，该接口中没有额外定义新的方法，使用的都是Collection中声明过的方法。不像是List，因为List有顺序，
+ *  所以List也有自己定义的方法。
  *
  *  2. 要求：向Set(主要指：HashSet、LinkedHashSet)中添加的数据，其所在的类一定要重写hashCode()和equals()
  *     要求：重写的hashCode()和equals()尽可能保持一致性：相等的对象必须具有相等的散列码

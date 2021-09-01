@@ -37,7 +37,7 @@ public class TreeSetTest {
 //        set.add(11);
 //        set.add(8);
 
-        //举例二：
+        //举例二：对自定义的类的对象进行比较，那么该对象必须实现Comparable,然后重写compareTo方法
         set.add(new User("Tom",12));
         set.add(new User("Jerry",32));
         set.add(new User("Jim",2));
