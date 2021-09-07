@@ -21,8 +21,9 @@ public class UDPTest {
         DatagramSocket socket = new DatagramSocket();
 
 
-
+        //要发送的导弹
         String str = "我是UDP方式发送的导弹";
+
         byte[] data = str.getBytes();
         InetAddress inet = InetAddress.getLocalHost();
         DatagramPacket packet = new DatagramPacket(data,0,data.length,inet,9090);

@@ -22,6 +22,7 @@ public class TCPTest1 {
     //客户端
     @Test
     public void client()  {
+        //里面包括ip和端口号
         Socket socket = null;
         OutputStream os = null;
         try {

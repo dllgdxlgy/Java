@@ -16,7 +16,7 @@ import java.io.*;
 public class OtherStreamTest {
 
     /*
-    1.标准的输入、输出流
+    1.标准的输入、输出流（了解）
     1.1
     System.in:标准的输入流，默认从键盘输入
     System.out:标准的输出流，默认从控制台输出

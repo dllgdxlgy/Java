@@ -141,6 +141,7 @@ public class ReflectionTest {
     @Test
     public void test4(){
         Class c1 = Object.class;
+
         Class c2 = Comparable.class;
         Class c3 = String[].class;
         Class c4 = int[][].class;

@@ -38,6 +38,8 @@ public class FileTest {
      */
     @Test
     public void test1(){
+
+        //路径下没有文件但是不会报错，因为这只是内存层面的创建
         //构造器1
         File file1 = new File("hello.txt");//相对于当前module
         //使用\\是停止\转义
@@ -46,16 +48,19 @@ public class FileTest {
         System.out.println(file1);
         System.out.println(file2);//还不需要有文件，指示内存层面的文件对象
 
-        //构造器2：
+
+
+        //构造器2：D:\workspace_idea1/JavaSenior
         File file3 = new File("D:\\workspace_idea1","JavaSenior");
         System.out.println(file3);
 
-        //构造器3：
+        //构造器3：D:\workspace_idea1/JavaSenior/hi.txt
         File file4 = new File(file3,"hi.txt");
         System.out.println(file4);
     }
 
     /*
+    常用方法
 public String getAbsolutePath()：获取绝对路径
 public String getPath() ：获取路径
 public String getName() ：获取名称
@@ -77,6 +82,8 @@ public File[] listFiles() ：获取指定目录下的所有文件或者文件目
         System.out.println(file1.getAbsolutePath());
         System.out.println(file1.getPath());
         System.out.println(file1.getName());
+
+        //null，因为写的是相对路径，这里是在相对路径下进行寻找，要是写绝对路径，就可以找到
         System.out.println(file1.getParent());
         System.out.println(file1.length());
         System.out.println(new Date(file1.lastModified()));

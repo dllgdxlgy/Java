@@ -27,6 +27,7 @@ public class RandomAccessFileTest {
         RandomAccessFile raf1 = null;
         RandomAccessFile raf2 = null;
         try {
+
             //1.
             raf1 = new RandomAccessFile(new File("爱情与友情.jpg"),"r");
             raf2 = new RandomAccessFile(new File("爱情与友情1.jpg"),"rw");

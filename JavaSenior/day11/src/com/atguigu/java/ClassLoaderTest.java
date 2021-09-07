@@ -46,7 +46,7 @@ public class ClassLoaderTest {
 
       Properties pros =  new Properties();
 
-      //此时的文件默认在当前的module下。
+      //此时的文件默认在当前的module下。如果是Eclipse，那就是当前工程下。
         //读取配置文件的方式一：
 //        Properties pros =  new Properties();
 //        FileInputStream fis = new FileInputStream("jdbc.properties");

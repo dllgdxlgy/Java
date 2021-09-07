@@ -21,6 +21,7 @@ public class NewInstanceTest {
         Class<Person> clazz = Person.class;
         /*
         newInstance():调用此方法，创建对应的运行时类的对象。内部调用了运行时类的空参的构造器。
+        如果没有空参构造器就回包上面的异常
 
         要想此方法正常的创建运行时类的对象，要求：
         1.运行时类必须提供空参的构造器，所以我们经常在写 javabean 时，写上无参构造函数。
@@ -37,8 +38,8 @@ public class NewInstanceTest {
 
     }
 
-    //体会反射的动态性
 
+    //体会反射的动态性
     //一说到反射，就要想到动态性,不像 new 对象一样，这里创建对象是不确定的，体现了动态性
     @Test
     public void test2(){

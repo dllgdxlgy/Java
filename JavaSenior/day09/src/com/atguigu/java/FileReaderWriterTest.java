@@ -29,7 +29,7 @@ public class FileReaderWriterTest {
         File file = new File("hello.txt");//相较于当前工程
         System.out.println(file.getAbsolutePath());
 
-        File file1 = new File("day09\\hello.txt");
+        File file1 = new File("day09\\hello.txt");//这样就是相当于在模块下对day09下对文件
         System.out.println(file1.getAbsolutePath());
     }
 
@@ -47,15 +47,15 @@ public class FileReaderWriterTest {
         FileReader fr = null;
         try {
             //1.实例化File类的对象，指明要操作的文件
-            File file = new File("hello.txt");//相较于当前Module
+            File file = new File("hello.txt");//在测试文件中，相较于当前Module
             //2.提供具体的流
             fr = new FileReader(file);
 
             //3.数据的读入
             //read():返回读入的一个字符。如果达到文件末尾，返回-1
             //方式一：
-//        int data = fr.read();
-//        while(data != -1){
+//          int data = fr.read();
+//          while(data != -1){
 //            System.out.print((char)data);
 //            data = fr.read();
 //        }
@@ -92,13 +92,13 @@ public class FileReaderWriterTest {
     public void testFileReader1()  {
         FileReader fr = null;
         try {
-            //1.File类的实例化
+            //1.File类的实例化,此时文件一定要存在
             File file = new File("hello.txt");
 
             //2.FileReader流的实例化
             fr = new FileReader(file);
 
-            //3.读入的操作
+            //3.读入的操作（此步骤是对上面的测试的迭代，read()空参构造器，是一个个读入的）
             //read(char[] cbuf):返回每次读入cbuf数组中的字符的个数。如果达到文件末尾，返回-1
             char[] cbuf = new char[5];
             int len;
@@ -116,7 +116,7 @@ public class FileReaderWriterTest {
                 //错误的写法,对应着方式一的错误的写法
 //                String str = new String(cbuf);
 //                System.out.print(str);
-                //正确的写法
+                //正确的写法，这里面就是放入几个取几个。而不是全部取出来。
                 String str = new String(cbuf,0,len);
                 System.out.print(str);
             }
@@ -154,7 +154,8 @@ public class FileReaderWriterTest {
             //1.提供File类的对象，指明写出到的文件
             File file = new File("hello1.txt");
 
-            //2.提供FileWriter的对象，用于数据的写出
+            //2.提供FileWriter的对象，用于数据的写出，append 的参数true，那就是在 原来文件的基础上进行添加
+            //而不是抹去重新写入，默认false
             fw = new FileWriter(file,false);
 
             //3.写出的操作

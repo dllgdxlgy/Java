@@ -18,6 +18,9 @@ import java.io.Serializable;
  */
 public class Person implements Serializable{
 
+
+    //必须要有才可以进行序列化，是为了识别某个类，也不一定是必须，如果是不写这个标示，这个类前后没有改变，那么不写也可以
+    //但是在实际中，我们是会修改类的，所有还是建议我们添加一个序列号。
     public static final long serialVersionUID = 475463534532L;
 
     private String name;
