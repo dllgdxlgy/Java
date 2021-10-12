@@ -17,7 +17,7 @@ public class NewInstanceTest {
     @Test
     public void test1() throws IllegalAccessException, InstantiationException {
 
-//        Class clazz = Person.class;
+//      Class clazz = Person.class;
         Class<Person> clazz = Person.class;
         /*
         newInstance():调用此方法，创建对应的运行时类的对象。内部调用了运行时类的空参的构造器。
@@ -33,6 +33,8 @@ public class NewInstanceTest {
         2.便于子类继承此运行时类时，默认调用super()时，保证父类有此构造器
 
          */
+        //一般我们都通过这个进行创建对象，为什么不用带参的构造器？
+        //因为：这样最简单，我们以后就要写点通用的代码，带参的各种各样，不方便。
         Person obj = clazz.newInstance();
         System.out.println(obj);
 

@@ -99,8 +99,10 @@ public File[] listFiles() ：获取指定目录下的所有文件或者文件目
     }
     @Test
     public void test3(){
-        File file = new File("D:\\尚硅谷\\Java基础\\课件笔记源码资料\\5_代码\\第2部分：Java高级编程\\JavaSenior");
+        File file = new File("/Users/lvguangyue/IdeaProjects/Java/JavaSenior/day08");
 
+
+        //打印相对路径
         String[] list = file.list();
         for(String s : list){
             System.out.println(s);
@@ -108,6 +110,7 @@ public File[] listFiles() ：获取指定目录下的所有文件或者文件目
 
         System.out.println();
 
+        //打印全路径
         File[] files = file.listFiles();
         for(File f : files){
             System.out.println(f);
@@ -140,7 +143,7 @@ public boolean isHidden() ：判断是否隐藏
     @Test
     public void test5(){
         File file1 = new File("hello.txt");
-        file1 = new File("hello1.txt");
+        file1 = new File("hello.txt");
 
         System.out.println(file1.isDirectory());
         System.out.println(file1.isFile());

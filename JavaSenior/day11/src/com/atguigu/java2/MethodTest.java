@@ -20,7 +20,7 @@ public class MethodTest {
 
         Class clazz = Person.class;
 
-        //getMethods():获取当前运行时类及其所有父类中声明为 public权限的方法
+        //getMethods():获取当前 运行时类及其所有父类 中声明为 public权限的方法
         Method[] methods = clazz.getMethods();
         for(Method m : methods){
             System.out.println(m);

@@ -39,6 +39,7 @@ public class GenericTest1 {
 
         SubOrder1<String> sub2 = new SubOrder1<>();
         sub2.setOrderT("order2...");
+        System.out.println("执行完毕");
     }
 
     @Test
