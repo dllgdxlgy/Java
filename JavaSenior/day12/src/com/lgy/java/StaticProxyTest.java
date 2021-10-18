@@ -31,6 +31,7 @@ class ProxyClothFactory implements ClothFactory{
     private ClothFactory factory;//用被代理类的对象进行实例化
 
     public ProxyClothFactory(ClothFactory factory){
+
         this.factory = factory;
     }
     @Override
