@@ -13,7 +13,7 @@ import java.util.TreeSet;
 public class TreeSetTest {
 
     /*
-    1.向TreeSet中添加的数据，要求是相同类的对象。
+    1.向TreeSet中添加的数据，要求是相同类的对象，不是相同的类的会报错。
     2.两种排序方式：自然排序（实现Comparable接口） 和 定制排序（Comparator）
 
 

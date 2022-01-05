@@ -10,6 +10,7 @@ import java.util.List;
 public class SubOrder extends Order<Integer> {//SubOrder:不是泛型类,因为在继承Order类的时候指明了泛型。
 
 
+    //但这是泛型方法
     public static <E> List<E> copyFromArrayToList(E[] arr){
 
         ArrayList<E> list = new ArrayList<>();

@@ -116,7 +116,7 @@ public class CollectionTest {
         System.out.println(list);
 
         List arr1 = Arrays.asList(new int[]{123, 456});
-        System.out.println(arr1.size());//1
+        System.out.println(arr1.size());//1 输出的是1，默认数组是一个元素
 
         List arr2 = Arrays.asList(new Integer[]{123, 456});
         System.out.println(arr2.size());//2

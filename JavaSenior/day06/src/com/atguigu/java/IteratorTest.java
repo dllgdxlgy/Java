@@ -43,6 +43,11 @@ public class IteratorTest {
 //        }
 
         //方式三：推荐
+
+        //Iterator iterator = coll.iterator();
+        //这句在执行的时候，就相当于加了一个指针，指向集合第一个元素的前面。
+        //另外，Iterator不是容器，他是在集合上做的操作。
+
         ////hasNext():判断是否还有下一个元素
         while(iterator.hasNext()){
             //next():①指针下移 ②将下移以后集合位置上的元素返回
