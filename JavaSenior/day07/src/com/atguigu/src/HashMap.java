@@ -264,28 +264,29 @@
 //     * @throws IllegalArgumentException if the initial capacity is negative
 //     *         or the load factor is nonpositive
 //     */
-//    public HashMap(int initialCapacity, float loadFactor) {
-//        if (initialCapacity < 0)
-//            throw new IllegalArgumentException("Illegal initial capacity: " +
-//                                               initialCapacity);
-//        if (initialCapacity > MAXIMUM_CAPACITY)
-//            initialCapacity = MAXIMUM_CAPACITY;
-//        if (loadFactor <= 0 || Float.isNaN(loadFactor))
-//            throw new IllegalArgumentException("Illegal load factor: " +
-//                                               loadFactor);
 //
-//        // Find a power of 2 >= initialCapacity
-//        int capacity = 1;
-//        while (capacity < initialCapacity)
-//            capacity <<= 1;
+//public HashMap(int initialCapacity, float loadFactor) {
+//    if (initialCapacity < 0)
+//        throw new IllegalArgumentException("Illegal initial capacity: " +
+//                                           initialCapacity);
+//    if (initialCapacity > MAXIMUM_CAPACITY)
+//        initialCapacity = MAXIMUM_CAPACITY;
+//    if (loadFactor <= 0 || Float.isNaN(loadFactor))
+//        throw new IllegalArgumentException("Illegal load factor: " +
+//                                           loadFactor);
 //
-//        this.loadFactor = loadFactor;
-//        threshold = (int)Math.min(capacity * loadFactor, MAXIMUM_CAPACITY + 1);
-//        table = new Entry[capacity];
-//        useAltHashing = sun.misc.VM.isBooted() &&
-//                (capacity >= Holder.ALTERNATIVE_HASHING_THRESHOLD);
-//        init();
-//    }
+//    // Find a power of 2 >= initialCapacity
+//    int capacity = 1;
+//    while (capacity < initialCapacity)
+//        capacity <<= 1;
+//
+//    this.loadFactor = loadFactor;
+//    threshold = (int)Math.min(capacity * loadFactor, MAXIMUM_CAPACITY + 1);
+//    table = new Entry[capacity];
+//    useAltHashing = sun.misc.VM.isBooted() &&
+//            (capacity >= Holder.ALTERNATIVE_HASHING_THRESHOLD);
+//    init();
+//}
 //
 //    /**
 //     * Constructs an empty <tt>HashMap</tt> with the specified initial
@@ -340,30 +341,30 @@
 //     * otherwise encounter collisions for hashCodes that do not differ
 //     * in lower bits. Note: Null keys always map to hash 0, thus index 0.
 //     */
-//    final int hash(Object k) {
-//        int h = 0;
-//        if (useAltHashing) {
-//            if (k instanceof String) {
-//                return sun.misc.Hashing.stringHash32((String) k);
-//            }
-//            h = hashSeed;
+//final int hash(Object k) {
+//    int h = 0;
+//    if (useAltHashing) {
+//        if (k instanceof String) {
+//            return sun.misc.Hashing.stringHash32((String) k);
 //        }
-//
-//        h ^= k.hashCode();
-//
-//        // This function ensures that hashCodes that differ only by
-//        // constant multiples at each bit position have a bounded
-//        // number of collisions (approximately 8 at default load factor).
-//        h ^= (h >>> 20) ^ (h >>> 12);
-//        return h ^ (h >>> 7) ^ (h >>> 4);
+//        h = hashSeed;
 //    }
+//
+//    h ^= k.hashCode();
+//
+//    // This function ensures that hashCodes that differ only by
+//    // constant multiples at each bit position have a bounded
+//    // number of collisions (approximately 8 at default load factor).
+//    h ^= (h >>> 20) ^ (h >>> 12);
+//    return h ^ (h >>> 7) ^ (h >>> 4);
+//}
 //
 //    /**
 //     * Returns index for hash code h.
 //     */
-//    static int indexFor(int h, int length) {
-//        return h & (length-1);
-//    }
+//static int indexFor(int h, int length) {
+//    return h & (length-1);
+//}
 //
 //    /**
 //     * Returns the number of key-value mappings in this map.
@@ -466,25 +467,25 @@
 //     *         (A <tt>null</tt> return can also indicate that the map
 //     *         previously associated <tt>null</tt> with <tt>key</tt>.)
 //     */
-//    public V put(K key, V value) {
-//        if (key == null)
-//            return putForNullKey(value);
-//        int hash = hash(key);
-//        int i = indexFor(hash, table.length);
-//        for (Entry<K,V> e = table[i]; e != null; e = e.next) {
-//            Object k;
-//            if (e.hash == hash && ((k = e.key) == key || key.equals(k))) {
-//                V oldValue = e.value;
-//                e.value = value;
-//                e.recordAccess(this);
-//                return oldValue;
-//            }
+//public V put(K key, V value) {
+//    if (key == null)
+//        return putForNullKey(value);
+//    int hash = hash(key);
+//    int i = indexFor(hash, table.length);
+//    for (Entry<K,V> e = table[i]; e != null; e = e.next) {
+//        Object k;
+//        if (e.hash == hash && ((k = e.key) == key || key.equals(k))) {
+//            V oldValue = e.value;
+//            e.value = value;
+//            e.recordAccess(this);
+//            return oldValue;
 //        }
-//
-//        modCount++;
-//        addEntry(hash, key, value, i);
-//        return null;
 //    }
+//
+//    modCount++;
+//    addEntry(hash, key, value, i);
+//    return null;
+//}
 //
 //    /**
 //     * Offloaded version of put for null keys
@@ -770,75 +771,75 @@
 //        return result;
 //    }
 //
-//    static class Entry<K,V> implements Map.Entry<K,V> {
-//        final K key;
-//        V value;
-//        Entry<K,V> next;
-//        int hash;
+//static class Entry<K,V> implements Map.Entry<K,V> {
+//    final K key;
+//    V value;
+//    Entry<K,V> next;
+//    int hash;
 //
-//        /**
-//         * Creates new entry.
-//         */
-//        Entry(int h, K k, V v, Entry<K,V> n) {
-//            value = v;
-//            next = n;
-//            key = k;
-//            hash = h;
-//        }
-//
-//        public final K getKey() {
-//            return key;
-//        }
-//
-//        public final V getValue() {
-//            return value;
-//        }
-//
-//        public final V setValue(V newValue) {
-//            V oldValue = value;
-//            value = newValue;
-//            return oldValue;
-//        }
-//
-//        public final boolean equals(Object o) {
-//            if (!(o instanceof Map.Entry))
-//                return false;
-//            Map.Entry e = (Map.Entry)o;
-//            Object k1 = getKey();
-//            Object k2 = e.getKey();
-//            if (k1 == k2 || (k1 != null && k1.equals(k2))) {
-//                Object v1 = getValue();
-//                Object v2 = e.getValue();
-//                if (v1 == v2 || (v1 != null && v1.equals(v2)))
-//                    return true;
-//            }
-//            return false;
-//        }
-//
-//        public final int hashCode() {
-//            return (key==null   ? 0 : key.hashCode()) ^
-//                   (value==null ? 0 : value.hashCode());
-//        }
-//
-//        public final String toString() {
-//            return getKey() + "=" + getValue();
-//        }
-//
-//        /**
-//         * This method is invoked whenever the value in an entry is
-//         * overwritten by an invocation of put(k,v) for a key k that's already
-//         * in the HashMap.
-//         */
-//        void recordAccess(HashMap<K,V> m) {
-//        }
-//
-//        /**
-//         * This method is invoked whenever the entry is
-//         * removed from the table.
-//         */
-//        void recordRemoval(HashMap<K,V> m) {
-//        }
+//    /**
+//     * Creates new entry.
+//     */
+//    Entry(int h, K k, V v, Entry<K,V> n) {
+//        value = v;
+//        next = n;
+//        key = k;
+//        hash = h;
 //    }
+//
+//    public final K getKey() {
+//        return key;
+//    }
+//
+//    public final V getValue() {
+//        return value;
+//    }
+//
+//    public final V setValue(V newValue) {
+//        V oldValue = value;
+//        value = newValue;
+//        return oldValue;
+//    }
+//
+//    public final boolean equals(Object o) {
+//        if (!(o instanceof Map.Entry))
+//            return false;
+//        Map.Entry e = (Map.Entry)o;
+//        Object k1 = getKey();
+//        Object k2 = e.getKey();
+//        if (k1 == k2 || (k1 != null && k1.equals(k2))) {
+//            Object v1 = getValue();
+//            Object v2 = e.getValue();
+//            if (v1 == v2 || (v1 != null && v1.equals(v2)))
+//                return true;
+//        }
+//        return false;
+//    }
+//
+//    public final int hashCode() {
+//        return (key==null   ? 0 : key.hashCode()) ^
+//               (value==null ? 0 : value.hashCode());
+//    }
+//
+//    public final String toString() {
+//        return getKey() + "=" + getValue();
+//    }
+//
+//    /**
+//     * This method is invoked whenever the value in an entry is
+//     * overwritten by an invocation of put(k,v) for a key k that's already
+//     * in the HashMap.
+//     */
+//    void recordAccess(HashMap<K,V> m) {
+//    }
+//
+//    /**
+//     * This method is invoked whenever the entry is
+//     * removed from the table.
+//     */
+//    void recordRemoval(HashMap<K,V> m) {
+//    }
+//}
 //
 //    /**
 //     * Adds a new entry with the specified key, value and hash code to
@@ -847,15 +848,15 @@
 //     *
 //     * Subclass overrides this to alter the behavior of put method.
 //     */
-//    void addEntry(int hash, K key, V value, int bucketIndex) {
-//        if ((size >= threshold) && (null != table[bucketIndex])) {
-//            resize(2 * table.length);
-//            hash = (null != key) ? hash(key) : 0;
-//            bucketIndex = indexFor(hash, table.length);
-//        }
-//
-//        createEntry(hash, key, value, bucketIndex);
+//void addEntry(int hash, K key, V value, int bucketIndex) {
+//    if ((size >= threshold) && (null != table[bucketIndex])) {
+//        resize(2 * table.length);
+//        hash = (null != key) ? hash(key) : 0;
+//        bucketIndex = indexFor(hash, table.length);
 //    }
+//
+//    createEntry(hash, key, value, bucketIndex);
+//}
 //
 //    /**
 //     * Like addEntry except that this version is used when creating entries
@@ -865,11 +866,11 @@
 //     * Subclass overrides this to alter the behavior of HashMap(Map),
 //     * clone, and readObject.
 //     */
-//    void createEntry(int hash, K key, V value, int bucketIndex) {
-//        Entry<K,V> e = table[bucketIndex];
-//        table[bucketIndex] = new Entry<>(hash, key, value, e);
-//        size++;
-//    }
+//void createEntry(int hash, K key, V value, int bucketIndex) {
+//    Entry<K,V> e = table[bucketIndex];
+//    table[bucketIndex] = new Entry<>(hash, key, value, e);
+//    size++;
+//}
 //
 //    private abstract class HashIterator<E> implements Iterator<E> {
 //        Entry<K,V> next;        // next entry to return
