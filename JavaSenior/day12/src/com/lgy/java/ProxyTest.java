@@ -44,8 +44,8 @@ class ProxyFactory{
 
 
     //调用此方法，返回代理类的对象。为了解决问题一
-    //返回值Object就是返回的代理类的类型，不能写成具体的某一个类
-    public static Object getProxyInstance(Object obj){//被创建的代理类的对象
+    //返回值Object就是返回的代理类的类型，不能写成具体的某一个类，写具体就写死了
+    public static Object getProxyInstance(Object obj){//创建的 被代理类 的对象
 
 
         //handler作为参数，会自动调用invoke方法
@@ -62,7 +62,7 @@ class ProxyFactory{
 
 class MyInvocationhandler implements InvocationHandler{
 
-    private Object obj;//赋值时，也需要使用被代理类的对象进行赋值
+    private Object obj;//赋值时，也需要使用 被代理类 的对象进行赋值
 
     public void  bind(Object obj){
         this.obj = obj;
@@ -72,6 +72,7 @@ class MyInvocationhandler implements InvocationHandler{
     //将被代理类要执行的方法a 的功能就声明在invoke()中
 
     /**
+     * 当我们通过代理类的对象，调用方法a时，就会自动的调用如下的方法
      *
      * @param proxy 代理类的对象
      * @param method 代理类要执行的方法，就声明在invoke()中
@@ -82,7 +83,7 @@ class MyInvocationhandler implements InvocationHandler{
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
 
-        //代理类对象调用的方法，此方法也就作为被代理类对象要调用的方法
+        //代理类对象调用的方法，此方法也就作为被代理类对象要调用的方法。
         Object returnValue = method.invoke(obj,args);
         return returnValue;
     }
@@ -93,9 +94,10 @@ public class ProxyTest {
 
     public static void main(String[] args) {
 
+        // 被代理类 的对象
         SuperMan superMan = new SuperMan();
 
-        //proxyInstance就是代理类的对象
+        //proxyInstance就是 代理类 的对象
         Human proxyInstance = (Human) ProxyFactory.getProxyInstance(superMan);
 
         proxyInstance.getBelife();
