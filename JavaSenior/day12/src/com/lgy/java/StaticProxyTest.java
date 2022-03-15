@@ -25,11 +25,13 @@ class NikeFactory implements ClothFactory{
 }
 
 //代理类
+//代理类也实现相同的接口
 class ProxyClothFactory implements ClothFactory{
 
 
     private ClothFactory factory;//用被代理类的对象进行实例化
 
+    //构造器
     public ProxyClothFactory(ClothFactory factory){
 
         this.factory = factory;
@@ -52,8 +54,13 @@ class ProxyClothFactory implements ClothFactory{
 public class StaticProxyTest {
 
     public static void main(String[] args) {
-        NikeFactory nikeFactory = new NikeFactory();
-        ProxyClothFactory proxyClothFactory = new ProxyClothFactory(nikeFactory);
+
+        //被代理类生成的对象
+        ClothFactory nikeFactory = new NikeFactory();
+        //传被代理类的对象，创建代理类的对象
+        ClothFactory proxyClothFactory = new ProxyClothFactory(nikeFactory);
+        //执行方法
+        // 代理类的对象执行方法，里面封装类 被代理类 的方法。
         proxyClothFactory.produceCloth();
     }
 
