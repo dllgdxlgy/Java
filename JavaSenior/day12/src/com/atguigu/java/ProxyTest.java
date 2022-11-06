@@ -73,7 +73,6 @@ class ProxyFactory{
         //返回的是代理类的类型，不能写死
         return Proxy.newProxyInstance(obj.getClass().getClassLoader(),obj.getClass().getInterfaces(),handler);
     }
-
 }
 
 class MyInvocationHandler implements InvocationHandler{

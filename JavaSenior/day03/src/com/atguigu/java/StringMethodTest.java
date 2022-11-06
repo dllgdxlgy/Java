@@ -127,8 +127,8 @@ String substring(int beginIndex, int endIndex) ：返回一个新字符串，它
     public void test2() {
         String s1 = "HelloWorld";
         String s2 = "helloworld";
-        System.out.println(s1.equals(s2));
-        System.out.println(s1.equalsIgnoreCase(s2));
+        System.out.println(s1.equals(s2)); // false
+        System.out.println(s1.equalsIgnoreCase(s2)); // true
 
         String s3 = "abc";
         String s4 = s3.concat("def");

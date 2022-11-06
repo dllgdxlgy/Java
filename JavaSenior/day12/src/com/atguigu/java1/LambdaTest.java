@@ -61,5 +61,4 @@ public class LambdaTest {
         int compare3 = com3.compare(32,21);
         System.out.println(compare3);
     }
-
 }
