@@ -35,7 +35,7 @@ package com.atguigu.java;
  */
 class Window1 implements Runnable{
 
-    private int ticket = 100;
+    private volatile int ticket = 100;
 //    Object obj = new Object();
 //    Dog dog = new Dog();
     @Override
